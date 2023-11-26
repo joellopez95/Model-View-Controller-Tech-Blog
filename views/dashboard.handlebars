@@ -1,0 +1,30 @@
+<!-- views/dashboard.handlebars -->
+
+{{#if user}}
+<!--boilerplate code, if username is logged in, display a welcome message-->
+  <h1>Welcome, {{user.username}}!</h1>
+
+  {{#if posts.length}}
+  <!--if user created post, display post-->
+    <h2>Your Blog Posts:</h2>
+    {{#each posts}}
+      <div class="post">
+        <h3 class="post-title">{{title}}</h3>
+        <p>{{content}}</p>
+        <p class="post-meta">Created on {{formatDate createdAt}}</p>
+        <a href="/post/{{id}}">View Post</a>
+        <a href="/dashboard/edit/{{id}}">Edit Post</a>
+        <a href="/dashboard/delete/{{id}}">Delete Post</a>
+      </div>
+    {{/each}}
+  {{else}}
+  <!--if user hasn't created blog posts yet, add link to create a new one-->
+    <p>You haven't created any blog posts yet. <a href="/dashboard/create">Create one now</a>!</p>
+  {{/if}}
+
+  <a href="/dashboard/create">Create a New Blog Post</a>
+  <a href="/logout">Logout</a>
+{{else}}
+<!--prompt for login/signup page-->
+  <p>You need to be logged in to access the dashboard. <a href="/login">Login</a></p>
+{{/if}}

@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const sequelize = require('./config/connection'); 
 const routes = require('./controllers');
-
+const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -21,7 +21,7 @@ const sess = {
 app.use(session(sess));
 
 // Set up Handlebars.js engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', exphbs({ helpers, defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Middleware

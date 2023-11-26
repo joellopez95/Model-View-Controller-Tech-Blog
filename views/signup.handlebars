@@ -1,0 +1,33 @@
+<!-- views/signup.handlebars -->
+
+{{#if user}}
+  <!-- user logged in, display a message for dash -->
+  <p>You are already logged in. <a href="/dashboard">Go to Dashboard</a></p>
+{{else}}
+<!--display signup form if user not logged in-->
+  <h1>Create Your Account</h1>
+
+  {{#if errorMessage}}
+    <p class="error-message">{{errorMessage}}</p>
+  {{/if}}
+<!--sign up form-->
+  <form action="/signup" method="POST">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn">Sign Up</button>
+    </div>
+  </form>
+<!--link to login page-->
+  <p>Already have an account? <a href="/login">Login here</a>.</p>
+{{/if}}

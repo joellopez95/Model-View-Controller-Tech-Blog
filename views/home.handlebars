@@ -1,0 +1,31 @@
+<!-- views/home.handlebars -->
+
+{{#if user}}
+<!--if user logged in, display welcome message link to dashboard and logout-->
+  <h1>Welcome, {{user.username}}!</h1>
+  <a href="/dashboard">Go to Dashboard</a>
+  <a href="/logout">Logout</a>
+{{else}}
+  <!-- If the user is not logged in, provide information about the blog and links to sign up or log in -->
+  <h1>Welcome to the Tech Blog!</h1>
+  <p>
+    This is a CMS-style blog where you can publish articles, blog posts, and share your thoughts and opinions about tech.
+    <a href="/signup">Sign up</a> or <a href="/login">log in</a> to get started!
+  </p>
+{{/if}}
+
+{{#if posts.length}}
+  <!-- If there are blog posts, display recent posts -->
+  <h2>Recent Blog Posts:</h2>
+  {{#each posts}}
+    <div class="post">
+      <h3 class="post-title">{{title}}</h3>
+      <p>{{content}}</p>
+      <p class="post-meta">Created by {{User.username}} on {{formatDate createdAt}}</p>
+      <a href="/post/{{id}}">Read More</a>
+    </div>
+  {{/each}}
+{{else}}
+  <!-- If there are no blog posts, encourage the user to create one -->
+  <p>No blog posts available. Start creating your own! <a href="/dashboard/create">Create a new post</a></p>
+{{/if}}
