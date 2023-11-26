@@ -1,0 +1,35 @@
+<!-- views/layouts/main.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{pageTitle}}</title>
+  <!-- css -->
+  <link rel="stylesheet" href="/Model-View-Controller-Tech-Blog/public/css/style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="container">
+      <!-- navigation links -->
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container main-content">
+    {{{body}}}
+  </div>
+
+  <!-- Add your additional scripts here, assuming they're in the public folder -->
+  <script src="/Model-View-Controller-Tech-Blog/public/js/main.js"></script> 
+
+</body>
+
+</html>

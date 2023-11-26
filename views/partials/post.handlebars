@@ -1,0 +1,14 @@
+<!-- views/partials/post.handlebars -->
+
+<div class="post">
+  <h2 class="post-title">{{post.title}}</h2>
+  <p>{{post.content}}</p>
+  <p class="post-meta">By {{post.User.username}} on {{formatDate post.createdAt}}</p>
+
+  <!-- Display comments for the post -->
+  <div class="comments">
+    {{#each comments}}
+      {{> comment}}
+    {{/each}}
+  </div>
+</div>
