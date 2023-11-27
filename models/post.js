@@ -1,5 +1,5 @@
 // models/post.js
-
+//code from earlier activities
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -30,6 +30,15 @@ Post.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+    },
+    // Foreign key to the User model
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Users', // Make sure this matches your actual User model name
+        key: 'id',
+      },
     },
   },
   {

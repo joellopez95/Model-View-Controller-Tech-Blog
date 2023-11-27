@@ -1,0 +1,18 @@
+[
+    {
+      "title": "Intro to JavaScript",
+      "content": "JavaScript is a versatile programming language.",
+      "UserId": 1
+    },
+    {
+      "title": "Express.js",
+      "content": "Express.js is a web application framework for Node.js.",
+      "UserId": 2
+    },
+    {
+      "title": "React",
+      "content": "React is a JavaScript library for building user interfaces.",
+      "UserId": 3
+    }
+  ]
+  

@@ -1,0 +1,23 @@
+[
+    {
+      "content": "Great post!",
+      "UserId": 1,
+      "PostId": 1
+    },
+    {
+      "content": "I have a question...",
+      "UserId": 2,
+      "PostId": 1
+    },
+    {
+      "content": "Nice work!",
+      "UserId": 3,
+      "PostId": 2
+    },
+    {
+      "content": "Looking forward to more!",
+      "UserId": 2,
+      "PostId": 2
+    }
+  ]
+  

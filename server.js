@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 
 // Set up session
 const sess = {
-  secret: 'top secret', // Change this to a secure, random string
+  secret: 'top secret',
   cookie: {},
   resave: false,
   saveUninitialized: true,
