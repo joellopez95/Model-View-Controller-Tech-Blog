@@ -44,11 +44,11 @@ router.post('/signup', async (req, res) => {
   try {
     const { username, password, email } = req.body;
     // Check if the username already exists
-    const existingUser = await User.findOne({ where: { username } });
-    // If the username already exists, handle the error
-    if (existingUser) {
-   return res.status(400).json({ errorMessage: 'Username is already taken. Choose another username.' });
- }
+//     const existingUser = await User.findOne({ where: { username } });
+//     // If the username already exists, handle the error
+//     if (existingUser) {
+//    return res.status(400).json({ errorMessage: 'Username is already taken. Choose another username.' });
+//  }
     // Hash the password before saving it to the database
     const hashedPassword = bcrypt.hashSync(password, 10);
 
