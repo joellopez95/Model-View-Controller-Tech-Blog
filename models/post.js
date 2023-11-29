@@ -36,14 +36,17 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'Users', // Make sure this matches your actual User model name
+        model: 'user', // Make sure this matches your actual User model name
         key: 'id',
       },
     },
   },
   {
     sequelize,
-    modelName: 'Post',
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'post',
   }
 );
 

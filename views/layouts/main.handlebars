@@ -1,35 +1,61 @@
-<!-- views/layouts/main.handlebars -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{pageTitle}}</title>
-  <!-- css -->
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="container">
-      <!-- navigation links -->
-      <a href="/">Home</a>
-      <a href="/dashboard">Dashboard</a>
-      <a href="/">Logout</a>
-    </div>
+  <div class="container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand" href="#">Tech Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <!-- Conditionally render login or logout links -->
+            {{#if logged_in}}
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-danger" id="logout">Logout</button>
+            </li>
+            {{else}}
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer class="mt-5">
+      <!-- Footer content goes here -->
+    </footer>
   </div>
 
-  <!-- Main Content -->
-  <div class="container main-content">
-    {{{body}}}
-  </div>
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <!-- javascript file to main.js -->
-  <script src="/js/logout.js"></script> 
-
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
+
 </html>

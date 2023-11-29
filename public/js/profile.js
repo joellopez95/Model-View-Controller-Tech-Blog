@@ -7,7 +7,7 @@ const newFormHandler = async (event) => {
     const content = document.querySelector('#blog-content').value.trim(); 
   
     if (title && content) {
-      const response = await fetch('/api/users/signup', {
+      const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({ title, content }),
         headers: {
@@ -16,7 +16,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard'); 
+        document.location.replace('/profile'); 
       } else {
         alert('Failed to create user');
       }
@@ -27,7 +27,7 @@ const newFormHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/projects/${id}`, {
+      const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
       });
   
@@ -44,6 +44,6 @@ const newFormHandler = async (event) => {
     .addEventListener('submit', newFormHandler);
   
   document
-    .querySelector('.project-list')
-    .addEventListener('click', delButtonHandler);
+    .querySelector('.blog-list')
+    .addEventListener('.click', delButtonHandler);
   

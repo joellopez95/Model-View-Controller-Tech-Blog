@@ -1,71 +1,54 @@
-// controllers/api/post-routes.js
-//boilerplate code from previous activities
 const router = require('express').Router();
-const { Post, Comment, User } = require('../../models');
+const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Route to create a new post
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-      user_id: req.session.user_id,
+      ...req.body,
+      userid: req.session.userid,
     });
 
-    res.status(201).json(newPost);
+    res.status(200).json(newPost);
   } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
-// Route to update a post by ID
-router.put('/:id', withAuth, async (req, res) => {
-  try {
-    const updatedPost = await Post.update(
-      {
-        title: req.body.title,
-        content: req.body.content,
-      },
-      {
-        where: {
-          id: req.params.id,
-          user_id: req.session.user_id,
-        },
-      }
-    );
+// router.post('/create-post', withAuth, async (req, res) => {
+//   try {
+//     const { title, content } = req.body;
 
-    if (!updatedPost[0]) {
-      res.status(404).json({ message: 'Post not found or you are not the owner' });
-      return;
-    }
+//     // Create a new post associated with the logged-in user
+//     const newPost = await Post.create({
+//       title,
+//       content,
+//       userid: req.session.userid,
+//     });
 
-    res.json(updatedPost);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-});
+//     // Redirect or respond as needed
+//     res.redirect('/'); // Redirect to the homepage
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-// Route to delete a post by ID
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const deletedPost = await Post.destroy({
+    const postData = await Post.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        userid: req.session.userid,
       },
     });
 
-    if (!deletedPost) {
-      res.status(404).json({ message: 'Post not found or you are not the owner' });
+    if (!postData) {
+      res.status(404).json({ message: 'No project found with this id!' });
       return;
     }
 
-    res.json(deletedPost);
+    res.status(200).json(postData);
   } catch (err) {
-    console.error(err);
     res.status(500).json(err);
   }
 });

@@ -1,80 +1,39 @@
-/* public/styles/style.css */
-
+/* Custom Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-  }
-  
-  .container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .header {
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .navbar {
-    background-color: #212529;
-    padding: 10px 0;
-  }
-  
-  .navbar a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 15px;
-  }
-  
-  .navbar a:hover {
-    text-decoration: underline;
-  }
-  
-  .main-content {
+  background-color: #f8f9fa;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px 0;
+}
+
+nav a {
+  color: #fff;
+}
+
+nav button {
+  margin-left: 10px;
+}
+
+main {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+/* Responsive margin top for small screens */
+@media (max-width: 576px) {
+  main {
     margin-top: 20px;
   }
-  
-  .post {
-    background-color: #ffffff;
-    border: 1px solid #dee2e6;
-    margin-bottom: 20px;
-    padding: 20px;
-  }
-  
-  .post-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .post-meta {
-    color: #868e96;
-    font-size: 0.8rem;
-  }
-  
-  .comment {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .btn {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
+}
