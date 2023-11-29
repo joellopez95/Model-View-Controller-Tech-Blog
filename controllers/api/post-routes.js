@@ -15,24 +15,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// router.post('/create-post', withAuth, async (req, res) => {
-//   try {
-//     const { title, content } = req.body;
-
-//     // Create a new post associated with the logged-in user
-//     const newPost = await Post.create({
-//       title,
-//       content,
-//       userid: req.session.userid,
-//     });
-
-//     // Redirect or respond as needed
-//     res.redirect('/'); // Redirect to the homepage
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({
