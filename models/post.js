@@ -36,7 +36,7 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'user', // Make sure this matches your actual User model name
+        model: 'user', 
         key: 'id',
       },
     },
