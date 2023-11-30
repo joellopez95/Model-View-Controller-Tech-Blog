@@ -1,7 +1,7 @@
 // models/index.js
 
 const Post = require('./Blog');
-const User = require('./User');
+const User = require('./Person');
 // Define associations
 User.hasMany(Post, {
   foreignKey: 'UserId',
