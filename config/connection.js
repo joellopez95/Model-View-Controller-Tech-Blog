@@ -13,7 +13,7 @@ if (process.env.DATABASE_URL) {
     {
       host: 'localhost',
       dialect: 'mysql',
-      port: 3001
+      port: 3306
     }
   );
 }
